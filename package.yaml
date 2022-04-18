@@ -1,0 +1,11 @@
+name: visual-coding
+version: "0.1.0.0"
+author: Hannes Steffenhagen
+maintainer: "Hannes Steffenhagen <cubicentertain@gmail.com>"
+
+executables:
+  visual-coding:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+    - base ^>= 4.14.3.0
