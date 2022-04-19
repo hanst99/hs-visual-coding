@@ -3,9 +3,29 @@ version: "0.1.0.0"
 author: Hannes Steffenhagen
 maintainer: "Hannes Steffenhagen <cubicentertain@gmail.com>"
 
+dependencies:
+- base >= 4.14.3.0
+
+library:
+  source-dirs: src
+
 executables:
   visual-coding:
     main: Main.hs
     source-dirs: app
+
+tests:
+  unit:
+    main: Spec.hs
+    source-dirs: test
     dependencies:
-    - base ^>= 4.14.3.0
+    - visual-coding
+    - hspec >= 2.9.6
+    build-tools:
+    - hspec-discover >= 2.9.6
+  doctest:
+    main: Doctest.hs
+    source-dirs: doctest
+    dependencies:
+    - doctest >= 0.20.0
+    - Glob >= 0.10
