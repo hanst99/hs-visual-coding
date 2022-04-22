@@ -6,13 +6,38 @@ maintainer: "Hannes Steffenhagen <cubicentertain@gmail.com>"
 dependencies:
 - base >= 4.14.3.0
 
+default-extensions:
+- AllowAmbiguousTypes
+- DeriveGeneric
+- DerivingStrategies
+- EmptyDataDecls
+- FlexibleContexts
+- FlexibleInstances
+- GADTs
+- GeneralizedNewtypeDeriving
+- LambdaCase
+- MultiParamTypeClasses
+- MultiWayIf
+- OverloadedStrings
+- PatternSynonyms
+- ScopedTypeVariables
+- StandaloneDeriving
+- TypeApplications
+- TypeFamilies
+- TypeOperators
+
 library:
   source-dirs: src
+  dependencies:
+  - yesod
 
 executables:
   visual-coding:
     main: Main.hs
     source-dirs: app
+    dependencies:
+    - visual-coding
+    - yesod
 
 tests:
   unit:
@@ -21,11 +46,6 @@ tests:
     dependencies:
     - visual-coding
     - hspec >= 2.9.6
+    - yesod-test
     build-tools:
     - hspec-discover >= 2.9.6
-  doctest:
-    main: Doctest.hs
-    source-dirs: doctest
-    dependencies:
-    - doctest >= 0.20.0
-    - Glob >= 0.10

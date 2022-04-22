@@ -1,61 +1,110 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.7.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 
-name:               visual-coding
-version:            0.1.0.0
-author:             Hannes Steffenhagen
-maintainer:         Hannes Steffenhagen <cubicentertain@gmail.com>
-build-type:         Simple
+name:           visual-coding
+version:        0.1.0.0
+author:         Hannes Steffenhagen
+maintainer:     Hannes Steffenhagen <cubicentertain@gmail.com>
+build-type:     Simple
 
 library
   exposed-modules:
-      VisualCoding.Dummy
+      VisualCoding.Web
   other-modules:
       Paths_visual_coding
   hs-source-dirs:
       src
+  default-extensions:
+      AllowAmbiguousTypes
+      DeriveGeneric
+      DerivingStrategies
+      EmptyDataDecls
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      MultiWayIf
+      OverloadedStrings
+      PatternSynonyms
+      ScopedTypeVariables
+      StandaloneDeriving
+      TypeApplications
+      TypeFamilies
+      TypeOperators
   build-depends:
       base >=4.14.3.0
+    , yesod
   default-language: Haskell2010
 
 executable visual-coding
   main-is: Main.hs
   other-modules:
       Paths_visual_coding
-  build-depends:
-      base >=4.14.3.0
   hs-source-dirs:
       app
-  default-language: Haskell2010
-
-test-suite doctest
-  type: exitcode-stdio-1.0
-  main-is: Doctest.hs
-  other-modules:
-      Paths_visual_coding
-  hs-source-dirs:
-      doctest
+  default-extensions:
+      AllowAmbiguousTypes
+      DeriveGeneric
+      DerivingStrategies
+      EmptyDataDecls
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      MultiWayIf
+      OverloadedStrings
+      PatternSynonyms
+      ScopedTypeVariables
+      StandaloneDeriving
+      TypeApplications
+      TypeFamilies
+      TypeOperators
   build-depends:
-      Glob >=0.10
-    , base >=4.14.3.0
-    , doctest >=0.20.0
+      base >=4.14.3.0
+    , visual-coding
+    , yesod
   default-language: Haskell2010
 
 test-suite unit
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      VisualCoding.DummySpec
+      VisualCoding.Web.TestSupport
+      VisualCoding.WebSpec
       Paths_visual_coding
   hs-source-dirs:
       test
+  default-extensions:
+      AllowAmbiguousTypes
+      DeriveGeneric
+      DerivingStrategies
+      EmptyDataDecls
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      MultiWayIf
+      OverloadedStrings
+      PatternSynonyms
+      ScopedTypeVariables
+      StandaloneDeriving
+      TypeApplications
+      TypeFamilies
+      TypeOperators
   build-tool-depends:
       hspec-discover:hspec-discover >=2.9.6
   build-depends:
       base >=4.14.3.0
     , hspec >=2.9.6
     , visual-coding
+    , yesod-test
   default-language: Haskell2010
