@@ -33,15 +33,16 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - run: export PATH="$PATH:$CABAL_DIR/bin"
-
     - name: Install dependencies
       run: |
         cabal update
         cabal build --only-dependencies --enable-tests --enable-benchmarks
 
     - name: Check that visual-coding.cabal is up to date
+      env:
+        PATH: "$PATH:$CABAL_DIR/bin"
       run: |
+        hpack || cabal install hpack-0.34.7
         cp visual-coding.cabal /tmp/
         hpack .
         diff visual-coding.cabal /tmp/visual-coding.cabal
