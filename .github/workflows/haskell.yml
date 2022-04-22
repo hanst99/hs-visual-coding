@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - run: DEBIAN_FRONTENT=noninteractive apt install -yq build-essential
+    - run: DEBIAN_FRONTENT=noninteractive sudo apt install -yq build-essential
     - uses: actions/checkout@v3
     - uses: haskell/actions/setup@v2
       with:
