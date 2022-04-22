@@ -12,9 +12,10 @@ permissions:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
+    - run: DEBIAN_FRONTENT=noninteractive apt install -yq build-essential
     - uses: actions/checkout@v3
     - uses: haskell/actions/setup@v2
       with:
